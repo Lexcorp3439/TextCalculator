@@ -49,7 +49,6 @@ public class SimpleCounter implements Counter {
                     if (poll == null) {
                         list.clear();
                         list.add(Pair.create(Action.ERROR, 3d));
-                        System.out.println("1");
                         return list;
                     }
                 }
@@ -75,7 +74,6 @@ public class SimpleCounter implements Counter {
     private Action lastAct = Action.PLUS;
     private double checkError(List<Pair<Action, Double>> list, ArrayDeque<Integer> stack) {
         if (stack.size() != 0){
-            System.out.println("2");
             return 3d;
         }
         switch (list.size()) {
@@ -83,14 +81,10 @@ public class SimpleCounter implements Counter {
                 return 2d;
             case 1:
                 if (list.get(0).first != Action.NUMBER) {
-                    System.out.println("3");
                     return 3d;
                 }
                 break;
             case 2:
-                System.out.println(list);
-                System.out.println(list.size());
-                System.out.println("4");
                 return 3d;
             default:
                 break;
@@ -106,7 +100,6 @@ public class SimpleCounter implements Counter {
                     list.set(i + 1, new Pair<>(Action.NUMBER, list.get(i + 1).second * -1));
                 }
             }
-            System.out.println(list);
 
             if (isNumber(cur.first) == last) {                                       //2 знака подряд
                 return 3d;
@@ -185,8 +178,6 @@ public class SimpleCounter implements Counter {
 
 
     private void calculations(ArrayDeque<Double> values, ArrayDeque<Action> action) {
-        System.out.println(values);
-        System.out.println(action);
         double first;
         double second;
         if (action.peekFirst() == Action.DIVIDE || action.peekFirst() == Action.MULTIPLY) {

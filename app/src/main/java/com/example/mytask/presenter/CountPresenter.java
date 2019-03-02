@@ -14,7 +14,7 @@ public class CountPresenter {
         if (result.first == 0) {
             DecimalFormat format = new DecimalFormat();
             format.setDecimalSeparatorAlwaysShown(false);
-//            format.format(result.second);
+
             builder.setTitle("Result!")
                     .setMessage(format.format(result.second))
                     .setCancelable(false)
